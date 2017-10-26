@@ -87,7 +87,7 @@
 <meta property="og:description" content="交换机基础交换机的作用交换机工作在OSI的数据链路层，操作对象为数据帧。在收到数据帧后，交换机会根据数据帧的头部信息对数据帧进行转发（隔离冲突域） 交换机的MAC地址表（转发表）   Vlan MAC Address Type Interface     1 00-00-00-11-11-11 STATIC e0/0/1   1 00-00-00-22-22-22 DYNAMIC e0/0/3">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img1.51cto.com/attachment/201306/172813479.jpg">
-<meta property="og:updated_time" content="2017-10-26T09:57:14.484Z">
+<meta property="og:updated_time" content="2017-10-26T12:05:38.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="交换基础">
 <meta name="twitter:description" content="交换机基础交换机的作用交换机工作在OSI的数据链路层，操作对象为数据帧。在收到数据帧后，交换机会根据数据帧的头部信息对数据帧进行转发（隔离冲突域） 交换机的MAC地址表（转发表）   Vlan MAC Address Type Interface     1 00-00-00-11-11-11 STATIC e0/0/1   1 00-00-00-22-22-22 DYNAMIC e0/0/3">
@@ -401,13 +401,32 @@
 <h3 id="工作过程"><a href="#工作过程" class="headerlink" title="工作过程"></a>工作过程</h3><p><img src="http://img1.51cto.com/attachment/201306/172813479.jpg" alt="image"></p>
 <ul>
 <li>主机A发送一个源MAC地址是自己，目的MAC地址为主机B的的MAC地址的数据帧给交换机。</li>
-<li><p>交换机收到此数据帧后，首先将数据帧中的源MAC地址(00-00-00-11-11-11)和对应的接口(接口为f0/1) 记录到MAC地址表中。</p>
-<p>Vlan | MAC Address | Type | Interface<br>—|—|—|—<br>1 | 00-00-00-11-11-11 | STATIC | e0/0/1</p>
-</li>
+<li>交换机收到此数据帧后，首先将数据帧中的源MAC地址(00-00-00-11-11-11)和对应的接口(接口为f0/1) 记录到MAC地址表中。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Vlan</th>
+<th>MAC Address</th>
+<th>Type</th>
+<th>Interface</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>00-00-00-11-11-11</td>
+<td>STATIC</td>
+<td>f0/1</td>
+</tr>
+</tbody>
+</table>
+<ul>
 <li>然后交换机会检查自己的MAC地址表中是否有数据帧中的目标MAC地址的信息，如果有，则从MAC地址表中记录的接口发送出去，如果没有，则会将此数据帧从除接收接口(f0/1接口)外的所有接口发送出(泛洪）。</li>
 <li>主机B收到此数据帧时会响应这个广播，并回应一个数据帧(源MAC地址是自己，目的MAC地址为主机A的MAC地址）给交换机。</li>
-<li><p>交换机收到主机B回应的数据帧后，也会记录数据帧中的源MAC地址(00-00-00-22-22-22)和对应接口(f0/2)<br>Vlan | MAC Address | Type | Interface<br>—|—|—|—<br>1 | 00-00-00-11-11-11 | STATIC | f0/1<br>1 | 00-00-00-22-22-22 | DYNAMIC| f0/2</p>
-<p>这时，再当主机A和主机B通信时，交换机直接根据MAC地址表中的记录，实现单播�</p>
+<li><p>交换机收到主机B回应的数据帧后，也会记录数据帧中的源MAC地址(00-00-00-22-22-22)和对应接口(f0/2)</p>
+<p>Vlan | MAC Address | Type | Interface<br>—|—|—|—<br>1 | 00-00-00-11-11-11 | STATIC | f0/1<br>1 | 00-00-00-22-22-22 | DYNAMIC| f0/2</p>
+<p>这时，再当主机A和主机B通信时，交换机直接根据MAC地址表中的记录，实现单播了</p>
 </li>
 </ul>
 
