@@ -1833,7 +1833,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e9f4ec;
+  background: #ff0a0b;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3000,4 +3000,15 @@ pre .javascript .function {
   .post-body {
     text-align: justify;
   }
+}
+body {
+  background: url("/images/background.jpg") no-repeat;
+/* ����ͼ��ֱ��ˮƽ������ */
+  background-position: center center;
+/* �����ݸ߶ȴ���ͼƬ�߶�ʱ������ͼ���λ�������viewport�̶� */
+  background-attachment: fixed;
+/* �ñ���ͼ����������С���� */
+  background-size: cover;
+/* ���ñ�����ɫ������ͼ���ع����л���ʾ����ɫ */
+  background-color: #293227;
 }
