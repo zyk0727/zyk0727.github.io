@@ -79,17 +79,21 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="几种因拓扑变化导致的链路故障浅解认识STP的两种BPDU 配置BPDU:也就是上篇所说讲到的在选举根桥，根端口，指定端口的过程中用于交换各交换机配置信息的数据包。 拓扑变化通知BPDU(TCN BPDU)：当交换机需要将拓扑更改信号发出时，它便开始通过自己的根端口(root port)发送 TCN，当接受交换机从它的指定端口(designate port)接收到TCN类BPDU时,它必须为其做转发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/10/20/hello-world/index.html">
+<meta property="og:title" content="交换基础(3)--STP(续)">
+<meta property="og:url" content="http://yoursite.com/2017/10/26/几种因拓扑变化导致的链路故障浅解/index.html">
 <meta property="og:site_name" content="Kun&#39;blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="几种因拓扑变化导致的链路故障浅解认识STP的两种BPDU 配置BPDU:也就是上篇所说讲到的在选举根桥，根端口，指定端口的过程中用于交换各交换机配置信息的数据包。 拓扑变化通知BPDU(TCN BPDU)：当交换机需要将拓扑更改信号发出时，它便开始通过自己的根端口(root port)发送 TCN，当接受交换机从它的指定端口(designate port)接收到TCN类BPDU时,它必须为其做转发">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-20T13:56:28.891Z">
+<meta property="og:image" content="http://oyn6ojfbq.bkt.clouddn.com/%E6%A0%B9%E6%A1%A5%E6%95%85%E9%9A%9C.jpg">
+<meta property="og:image" content="http://oyn6ojfbq.bkt.clouddn.com/%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E6%95%85%E9%9A%9C.png">
+<meta property="og:image" content="http://oyn6ojfbq.bkt.clouddn.com/%E9%9D%9E%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E6%95%85%E9%9A%9C.png">
+<meta property="og:updated_time" content="2017-11-06T15:15:54.520Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="交换基础(3)--STP(续)">
+<meta name="twitter:description" content="几种因拓扑变化导致的链路故障浅解认识STP的两种BPDU 配置BPDU:也就是上篇所说讲到的在选举根桥，根端口，指定端口的过程中用于交换各交换机配置信息的数据包。 拓扑变化通知BPDU(TCN BPDU)：当交换机需要将拓扑更改信号发出时，它便开始通过自己的根端口(root port)发送 TCN，当接受交换机从它的指定端口(designate port)接收到TCN类BPDU时,它必须为其做转发">
+<meta name="twitter:image" content="http://oyn6ojfbq.bkt.clouddn.com/%E6%A0%B9%E6%A1%A5%E6%95%85%E9%9A%9C.jpg">
 
 
 
@@ -119,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/20/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/26/几种因拓扑变化导致的链路故障浅解/"/>
 
 
 
 
 
-  <title>Hello World | Kun'blog</title>
+  <title>交换基础(3)--STP(续) | Kun'blog</title>
   
 
 
@@ -262,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/26/几种因拓扑变化导致的链路故障浅解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhangxiaokun">
@@ -279,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">交换基础(3)--STP(续)</h1>
         
 
         <div class="post-meta">
@@ -291,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T21:56:28+08:00">
-                2017-10-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-26T00:00:00+08:00">
+                2017-10-26
               </time>
             
 
@@ -301,6 +305,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -334,15 +360,22 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h2 id="几种因拓扑变化导致的链路故障浅解"><a href="#几种因拓扑变化导致的链路故障浅解" class="headerlink" title="几种因拓扑变化导致的链路故障浅解"></a>几种因拓扑变化导致的链路故障浅解</h2><h3 id="认识STP的两种BPDU"><a href="#认识STP的两种BPDU" class="headerlink" title="认识STP的两种BPDU"></a>认识STP的两种BPDU</h3><ol>
+<li>配置BPDU:也就是上篇所说讲到的在选举根桥，根端口，指定端口的过程中用于交换各交换机配置信息的数据包。</li>
+<li>拓扑变化通知BPDU(TCN BPDU)：当交换机需要将拓扑更改信号发出时，它便开始通过自己的根端口(root port)发送 TCN，当接受交换机从它的指定端口(designate port)接收到TCN类BPDU时,它必须为其做转发,让它继续从自已的根端口上发送TCN BPDU包,然后给发送者做出回应(回复一个TC字段=1的配置BPDU)，这样一级一级地传到根桥(root bridge)后,TCN的任务才算完成.</li>
+</ol>
+<h3 id="认识几种计时器"><a href="#认识几种计时器" class="headerlink" title="认识几种计时器"></a>认识几种计时器</h3><ol>
+<li><p>Max Age：端口的BPDU老化时间，端口会根据接收到的BPDU存储所接收到的最好的四个信息（根桥BID、累计根路径开销、发送者BID和发送端口PID）。每次接收到合适的BPDU，端口都会启动这个Max Age计时器。超过这个MaxAge时间端口接收不到合适BPDU，就会认为网络直径过大。这个时间默认为20秒。</p>
+</li>
+<li><p>Forwarding Delay Timer：指一个端口Listening和Learning的各自时间，默认为15秒，即Listening状态持续15秒，随后Learning状态再持续15秒。这两个状态下的端口会处于Blocking状态，这是STP用于避免临时环路的关键。</p>
+</li>
+<li><p>Hello Timer：STP交换机发送BPDU的时间间隔。当网络拓扑稳定之后，该计时器的修改只有在根桥修改才有效。根桥会在之后发出的BPDU中填充适当的字段以向其他非根桥传递该计时器修改信息。但当拓扑变化之后，TCN BPDU的发送不受这个计时器的管理。</p>
+</li>
+</ol>
+<p>###几种链路故障</p>
+<h4 id="根桥故障"><a href="#根桥故障" class="headerlink" title="根桥故障"></a>根桥故障</h4><p>根桥down掉之后，非根桥在BPDU老化之后重新选举根桥，原来的y预备端口在选举过程中要进行端口状态的转变，从blocking-&gt;listing-&gt;learning-&gt;forwarding经过2倍的Forwarding<br>Delay=30s后链路重新收敛，此过程大致花费50s左右<br><img src="http://oyn6ojfbq.bkt.clouddn.com/%E6%A0%B9%E6%A1%A5%E6%95%85%E9%9A%9C.jpg" alt="!image"></p>
+<h3 id="直连链路故障"><a href="#直连链路故障" class="headerlink" title="直连链路故障"></a>直连链路故障</h3><p>SWB检测到直连链路发生故障，预备端口开始端口状态的转换，从blocking-&gt;listing-&gt;learning-&gt;forwarding经过2倍的Forwarding.Delay时间转换成为根端口，此过程花费30s。<br><img src="http://oyn6ojfbq.bkt.clouddn.com/%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E6%95%85%E9%9A%9C.png" alt="image"></p>
+<h3 id="非直连链路故障"><a href="#非直连链路故障" class="headerlink" title="非直连链路故障"></a>非直连链路故障</h3><p>当如下图所示位置断开连接，SWB是检测不到链路发生故障的，但是SWB一直接收不到来自根桥的BPDU，Max Age超时后，SWB认为根桥故障了，它开始发送自己的BPDU，SWC的预备端口能收到来自SWB的BPDU，根端口能收到来自根桥的BPDU，显然，在比较优先级后就会不理会来自SWB的BPDU，但SWC的预备端口迟迟收不到来自根桥的BPDU，就会进行端口的状态转换，时间为2倍的Forwarding.Delay，所以此过程花费50s.<br><img src="http://oyn6ojfbq.bkt.clouddn.com/%E9%9D%9E%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E6%95%85%E9%9A%9C.png" alt="image"></p>
 
       
     </div>
@@ -367,14 +400,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/10/26/STP(生成树协议）/" rel="next" title="交换基础(2)--STP">
+                <i class="fa fa-chevron-left"></i> 交换基础(2)--STP
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/23/tcp运输连接/" rel="prev" title="TCP的连接建立(三次握手)与断开(四次挥手)">
-                TCP的连接建立(三次握手)与断开(四次挥手) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/26/--交换机基础--/" rel="prev" title="交换基础(1)--交换机">
+                交换基础(1)--交换机 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -504,7 +541,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#几种因拓扑变化导致的链路故障浅解"><span class="nav-number">1.</span> <span class="nav-text">几种因拓扑变化导致的链路故障浅解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#认识STP的两种BPDU"><span class="nav-number">1.1.</span> <span class="nav-text">认识STP的两种BPDU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#认识几种计时器"><span class="nav-number">1.2.</span> <span class="nav-text">认识几种计时器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#根桥故障"><span class="nav-number">1.2.1.</span> <span class="nav-text">根桥故障</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直连链路故障"><span class="nav-number">1.3.</span> <span class="nav-text">直连链路故障</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非直连链路故障"><span class="nav-number">1.4.</span> <span class="nav-text">非直连链路故障</span></a></li></ol></li></ol></div>
             
 
           </div>
