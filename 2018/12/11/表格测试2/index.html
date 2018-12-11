@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Kun&#39;blog">
 <meta property="og:description" content="算数运算符   运算符 说明 使用举例      + 加法 expr $a + $b   - 减法 expr $a - $b   * 乘法 expr $a \* $b   / 除法 expr $a / $b   % 取余 expr $a % $b   = 赋值 a = $b 将变量b的值赋给a   == 判相等，相同为true [ \$a == \$b ]   != 判不等，不等为true [ \">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-11T10:10:42.465Z">
+<meta property="og:updated_time" content="2018-12-11T10:18:12.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="表格测试2">
 <meta name="twitter:description" content="算数运算符   运算符 说明 使用举例      + 加法 expr $a + $b   - 减法 expr $a - $b   * 乘法 expr $a \* $b   / 除法 expr $a / $b   % 取余 expr $a % $b   = 赋值 a = $b 将变量b的值赋给a   == 判相等，相同为true [ \$a == \$b ]   != 判不等，不等为true [ \">
@@ -407,7 +407,49 @@
 </tr>
 </tbody>
 </table>
-<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a><strong>关系运算符</strong></h3><p>关系运算符只支持数字，不支持字符串，除非字符串的值是数字<br>假设a=20; b=30<br>运算符 | 说明 | 使用举例<br>— |  — |  —<br>-eq | 两个变量相等 返回 true | [ \$a -eq \$b ] 返回false<br>-ne | 两个变量不相等 返回 true | [ \$a -ne \$b ] 返回true<br>-gt | 左变量 &gt; 右变量  返回true | [ \$a -gt \$b ] 返回false<br>-lt | 左变量 &lt; 右变量  返回true | [ \$a -lt \$b ] 返回true<br>-ge | 左变量 &gt;= 右变量  返回true | [ \$a -ge \$b ] 返回false<br>-le | 左变量 &lt;= 右变量  返回true | [ \$a -le \$b ] 返回true<br><strong>注意</strong><br>表达式要放在方括号之间，并且要有空格，[ \$a -gt \$b ]。</p>
+<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a><strong>关系运算符</strong></h3><p>关系运算符只支持数字，不支持字符串，除非字符串的值是数字<br>假设a=20; b=30.</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>说明</th>
+<th>使用举例 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-eq</td>
+<td>两个变量相等 返回 true</td>
+<td>[ \$a -eq \$b ] 返回false</td>
+</tr>
+<tr>
+<td>-ne</td>
+<td>两个变量不相等 返回 true</td>
+<td>[ \$a -ne \$b ] 返回true</td>
+</tr>
+<tr>
+<td>-gt</td>
+<td>左变量 &gt; 右变量  返回true</td>
+<td>[ \$a -gt \$b ] 返回false</td>
+</tr>
+<tr>
+<td>-lt</td>
+<td>左变量 &lt; 右变量  返回true</td>
+<td>[ \$a -lt \$b ] 返回true</td>
+</tr>
+<tr>
+<td>-ge</td>
+<td>左变量 &gt;= 右变量  返回true</td>
+<td>[ \$a -ge \$b ] 返回false</td>
+</tr>
+<tr>
+<td>-le</td>
+<td>左变量 &lt;= 右变量  返回true</td>
+<td>[ \$a -le \$b ] 返回true</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意</strong><br>表达式要放在方括号之间，并且要有空格，[ \$a -gt \$b ]。</p>
 <h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a><strong>逻辑运算符</strong></h3><p>假设a=20;b=30</p>
 <table>
 <thead>
@@ -424,8 +466,8 @@
 <td>[[ \$a -lt 100 &amp;&amp; \$b -gt 100 ]] 返回false</td>
 </tr>
 <tr>
-<td>\</td>
-<td>\</td>
+<td></td>
+<td></td>
 <td></td>
 <td>逻辑上的 或</td>
 <td>[[ \$a -lt 100 \</td>
