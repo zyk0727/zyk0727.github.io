@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="算数运算符运算符 | 说明 | 使用举例| — | — | — || + | 加法 | expr $a + $b || - | 减法 | expr $a - $b ||  | 乘法 | `expr $a \ $b| | / | 除法 |expr $a / $b| | % | 取余 |expr $a % $b` || = | 赋值 | a = $b 将变量b的值赋给a|| == | 判相等，相同为t">
+<meta name="description" content="算数运算符   运算符 说明 使用举例      + 加法 expr $a + $b   - 减法 expr $a - $b   * 乘法 expr $a \* $b   / 除法 expr $a / $b   % 取余 expr $a % $b   = 赋值 a = $b 将变量b的值赋给a   == 判相等，相同为true [ \$a == \$b ]   != 判不等，不等为true [ \">
 <meta property="og:type" content="article">
 <meta property="og:title" content="表格测试2">
 <meta property="og:url" content="http://yoursite.com/2018/12/11/表格测试2/index.html">
 <meta property="og:site_name" content="Kun&#39;blog">
-<meta property="og:description" content="算数运算符运算符 | 说明 | 使用举例| — | — | — || + | 加法 | expr $a + $b || - | 减法 | expr $a - $b ||  | 乘法 | `expr $a \ $b| | / | 除法 |expr $a / $b| | % | 取余 |expr $a % $b` || = | 赋值 | a = $b 将变量b的值赋给a|| == | 判相等，相同为t">
+<meta property="og:description" content="算数运算符   运算符 说明 使用举例      + 加法 expr $a + $b   - 减法 expr $a - $b   * 乘法 expr $a \* $b   / 除法 expr $a / $b   % 取余 expr $a % $b   = 赋值 a = $b 将变量b的值赋给a   == 判相等，相同为true [ \$a == \$b ]   != 判不等，不等为true [ \">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-11T10:02:19.406Z">
+<meta property="og:updated_time" content="2018-12-11T10:10:42.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="表格测试2">
-<meta name="twitter:description" content="算数运算符运算符 | 说明 | 使用举例| — | — | — || + | 加法 | expr $a + $b || - | 减法 | expr $a - $b ||  | 乘法 | `expr $a \ $b| | / | 除法 |expr $a / $b| | % | 取余 |expr $a % $b` || = | 赋值 | a = $b 将变量b的值赋给a|| == | 判相等，相同为t">
+<meta name="twitter:description" content="算数运算符   运算符 说明 使用举例      + 加法 expr $a + $b   - 减法 expr $a - $b   * 乘法 expr $a \* $b   / 除法 expr $a / $b   % 取余 expr $a % $b   = 赋值 a = $b 将变量b的值赋给a   == 判相等，相同为true [ \$a == \$b ]   != 判不等，不等为true [ \">
 
 
 
@@ -356,11 +356,85 @@
       
 
       
-        <h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a><strong>算数运算符</strong></h3><p>运算符 | 说明 | 使用举例<br>| — | — | — |<br>| + | 加法 | <code>expr $a + $b</code> |<br>| - | 减法 | <code>expr $a - $b</code> |<br>| <em> | 乘法 | `expr $a \</em> $b<code>|
-| / | 除法 |</code>expr $a / $b<code>|
-| % | 取余 |</code>expr $a % $b` |<br>| = | 赋值 | a = $b 将变量b的值赋给a|<br>| == | 判相等，相同为true |  [ \$a == \$b ]  |<br>| != | 判不等，不等为true | [ \$a != \$b ] |</p>
-<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a><strong>关系运算符</strong></h3><p>关系运算符只支持数字，不支持字符串，除非字符串的值是数字<br>假设a=20; b=30<br> 运算符 | 说明 | 使用举例<br>|  — |  — |  — |<br>| -eq | 两个变量相等 返回 true | [ \$a -eq \$b ] 返回false |<br>| -ne | 两个变量不相等 返回 true | [ \$a -ne \$b ] 返回true |<br>| -gt | 左变量 &gt; 右变量  返回true | [ \$a -gt \$b ] 返回false |<br>| -lt | 左变量 &lt; 右变量  返回true | [ \$a -lt \$b ] 返回true |<br>| -ge | 左变量 &gt;= 右变量  返回true | [ \$a -ge \$b ] 返回false |<br>| -le | 左变量 &lt;= 右变量  返回true | [ \$a -le \$b ] 返回true |<br><strong>注意</strong><br>表达式要放在方括号之间，并且要有空格，[ \$a -gt \$b ]。</p>
-<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a><strong>逻辑运算符</strong></h3><p>假设a=20;b=30<br>运算符 | 说明 | 使用举例<br>|— | — | — |<br>| &amp;&amp; | 逻辑上的 与 | [[ \$a -lt 100 &amp;&amp; \$b -gt 100 ]] 返回false |<br>| || | 逻辑上的 或 | [[ \$a -lt 100 || \$b -gt 100 ]]返回false |<br><strong>注意</strong><br>表达式要放在<strong>双(double)</strong>方括号之间，并且要有空格[[ \$a -lt 100 &amp;&amp; \$b -gt 100 ]].</p>
+        <h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a><strong>算数运算符</strong></h3><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>说明</th>
+<th>使用举例 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>加法</td>
+<td><code>expr $a + $b</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td>减法</td>
+<td><code>expr $a - $b</code></td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘法</td>
+<td><code>expr $a \* $b</code></td>
+</tr>
+<tr>
+<td>/</td>
+<td>除法</td>
+<td><code>expr $a / $b</code></td>
+</tr>
+<tr>
+<td>%</td>
+<td>取余</td>
+<td><code>expr $a % $b</code></td>
+</tr>
+<tr>
+<td>=</td>
+<td>赋值</td>
+<td>a = $b 将变量b的值赋给a</td>
+</tr>
+<tr>
+<td>==</td>
+<td>判相等，相同为true</td>
+<td>[ \$a == \$b ]</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>判不等，不等为true</td>
+<td>[ \$a != \$b ]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a><strong>关系运算符</strong></h3><p>关系运算符只支持数字，不支持字符串，除非字符串的值是数字<br>假设a=20; b=30<br>运算符 | 说明 | 使用举例<br>— |  — |  —<br>-eq | 两个变量相等 返回 true | [ \$a -eq \$b ] 返回false<br>-ne | 两个变量不相等 返回 true | [ \$a -ne \$b ] 返回true<br>-gt | 左变量 &gt; 右变量  返回true | [ \$a -gt \$b ] 返回false<br>-lt | 左变量 &lt; 右变量  返回true | [ \$a -lt \$b ] 返回true<br>-ge | 左变量 &gt;= 右变量  返回true | [ \$a -ge \$b ] 返回false<br>-le | 左变量 &lt;= 右变量  返回true | [ \$a -le \$b ] 返回true<br><strong>注意</strong><br>表达式要放在方括号之间，并且要有空格，[ \$a -gt \$b ]。</p>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a><strong>逻辑运算符</strong></h3><p>假设a=20;b=30</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>说明</th>
+<th>使用举例 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;&amp;</td>
+<td>逻辑上的 与</td>
+<td>[[ \$a -lt 100 &amp;&amp; \$b -gt 100 ]] 返回false</td>
+</tr>
+<tr>
+<td>\</td>
+<td>\</td>
+<td></td>
+<td>逻辑上的 或</td>
+<td>[[ \$a -lt 100 \</td>
+<td>\</td>
+<td>\$b -gt 10]]返回false</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意</strong><br>表达式要放在<strong>双(double)</strong>方括号之间，并且要有空格[[ \$a -lt 100 &amp;&amp; \$b -gt 100 ]].</p>
 
       
     </div>
