@@ -86,14 +86,14 @@
 <meta property="og:site_name" content="Kun&#39;blog">
 <meta property="og:description" content="几种因拓扑变化导致的链路故障浅解认识STP的两种BPDU 配置BPDU:也就是上篇所说讲到的在选举根桥，根端口，指定端口的过程中用于交换各交换机配置信息的数据包。 拓扑变化通知BPDU(TCN BPDU)：当交换机需要将拓扑更改信号发出时，它便开始通过自己的根端口(root port)发送 TCN，当接受交换机从它的指定端口(designate port)接收到TCN类BPDU时,它必须为其做转发">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://oyn6ojfbq.bkt.clouddn.com/%E6%A0%B9%E6%A1%A5%E6%95%85%E9%9A%9C.jpg">
-<meta property="og:image" content="http://oyn6ojfbq.bkt.clouddn.com/%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E6%95%85%E9%9A%9C.png">
-<meta property="og:image" content="http://oyn6ojfbq.bkt.clouddn.com/%E9%9D%9E%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E6%95%85%E9%9A%9C.png">
-<meta property="og:updated_time" content="2017-11-07T01:52:55.565Z">
+<meta property="og:image" content="http://www.zhangyukunblog.top/%E6%A0%B9%E6%A1%A5%E6%95%85%E9%9A%9C.jpg">
+<meta property="og:image" content="http://www.zhangyukunblog.top/%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E6%95%85%E9%9A%9C.png">
+<meta property="og:image" content="http://www.zhangyukunblog.top/%E9%9D%9E%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E6%95%85%E9%9A%9C.png">
+<meta property="og:updated_time" content="2018-12-11T08:42:30.970Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="交换基础(3)--STP(续)">
 <meta name="twitter:description" content="几种因拓扑变化导致的链路故障浅解认识STP的两种BPDU 配置BPDU:也就是上篇所说讲到的在选举根桥，根端口，指定端口的过程中用于交换各交换机配置信息的数据包。 拓扑变化通知BPDU(TCN BPDU)：当交换机需要将拓扑更改信号发出时，它便开始通过自己的根端口(root port)发送 TCN，当接受交换机从它的指定端口(designate port)接收到TCN类BPDU时,它必须为其做转发">
-<meta name="twitter:image" content="http://oyn6ojfbq.bkt.clouddn.com/%E6%A0%B9%E6%A1%A5%E6%95%85%E9%9A%9C.jpg">
+<meta name="twitter:image" content="http://www.zhangyukunblog.top/%E6%A0%B9%E6%A1%A5%E6%95%85%E9%9A%9C.jpg">
 
 
 
@@ -373,9 +373,9 @@
 </li>
 </ol>
 <p>###几种链路故障</p>
-<h4 id="根桥故障"><a href="#根桥故障" class="headerlink" title="根桥故障"></a>根桥故障</h4><p>根桥down掉之后，非根桥在BPDU老化之后重新选举根桥，原来的y预备端口在选举过程中要进行端口状态的转变，从blocking-&gt;listing-&gt;learning-&gt;forwarding经过2倍的Forwarding<br>Delay=30s后链路重新收敛，此过程大致花费50s左右<br><img src="http://oyn6ojfbq.bkt.clouddn.com/%E6%A0%B9%E6%A1%A5%E6%95%85%E9%9A%9C.jpg" alt="!image"></p>
-<h3 id="直连链路故障"><a href="#直连链路故障" class="headerlink" title="直连链路故障"></a>直连链路故障</h3><p>SWB检测到直连链路发生故障，预备端口开始端口状态的转换，从blocking-&gt;listing-&gt;learning-&gt;forwarding经过2倍的Forwarding.Delay时间转换成为根端口，此过程花费30s。<br><img src="http://oyn6ojfbq.bkt.clouddn.com/%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E6%95%85%E9%9A%9C.png" alt="image"></p>
-<h3 id="非直连链路故障"><a href="#非直连链路故障" class="headerlink" title="非直连链路故障"></a>非直连链路故障</h3><p>当如下图所示位置断开连接，SWB是检测不到链路发生故障的，但是SWB一直接收不到来自根桥的BPDU，Max Age超时后，SWB认为根桥故障了，它开始发送自己的BPDU，SWC的预备端口能收到来自SWB的BPDU，根端口能收到来自根桥的BPDU，显然，在比较优先级后就会不理会来自SWB的BPDU，但SWC的预备端口迟迟收不到来自根桥的BPDU，就会进行端口的状态转换，时间为2倍的Forwarding.Delay，所以此过程花费50s.<br><img src="http://oyn6ojfbq.bkt.clouddn.com/%E9%9D%9E%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E6%95%85%E9%9A%9C.png" alt="image"></p>
+<h4 id="根桥故障"><a href="#根桥故障" class="headerlink" title="根桥故障"></a>根桥故障</h4><p>根桥down掉之后，非根桥在BPDU老化之后重新选举根桥，原来的y预备端口在选举过程中要进行端口状态的转变，从blocking-&gt;listing-&gt;learning-&gt;forwarding经过2倍的Forwarding<br>Delay=30s后链路重新收敛，此过程大致花费50s左右<br><img src="http://www.zhangyukunblog.top/%E6%A0%B9%E6%A1%A5%E6%95%85%E9%9A%9C.jpg" alt="!image"></p>
+<h3 id="直连链路故障"><a href="#直连链路故障" class="headerlink" title="直连链路故障"></a>直连链路故障</h3><p>SWB检测到直连链路发生故障，预备端口开始端口状态的转换，从blocking-&gt;listing-&gt;learning-&gt;forwarding经过2倍的Forwarding.Delay时间转换成为根端口，此过程花费30s。<br><img src="http://www.zhangyukunblog.top/%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E6%95%85%E9%9A%9C.png" alt="image"></p>
+<h3 id="非直连链路故障"><a href="#非直连链路故障" class="headerlink" title="非直连链路故障"></a>非直连链路故障</h3><p>当如下图所示位置断开连接，SWB是检测不到链路发生故障的，但是SWB一直接收不到来自根桥的BPDU，Max Age超时后，SWB认为根桥故障了，它开始发送自己的BPDU，SWC的预备端口能收到来自SWB的BPDU，根端口能收到来自根桥的BPDU，显然，在比较优先级后就会不理会来自SWB的BPDU，但SWC的预备端口迟迟收不到来自根桥的BPDU，就会进行端口的状态转换，时间为2倍的Forwarding.Delay，所以此过程花费50s.<br><img src="http://www.zhangyukunblog.top/%E9%9D%9E%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E6%95%85%E9%9A%9C.png" alt="image"></p>
 
       
     </div>
