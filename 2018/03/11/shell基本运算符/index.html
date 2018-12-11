@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Kun&#39;blog">
 <meta property="og:description" content="shell基本运算符类别介绍 算术运算符 关系运算符 布尔运算符 字符串运算符 文件测试运算符  几点注意 在进行求值操作时要使用expr 表达式和运算符之间必须要有空格 算数表达式要完全被``包含12a=`expr 2 + 2`echo &quot;两数之和为 : $a&quot;   算数运算符   运算符 说明 使用举例     + 加法 expr $a + $b   - 减法 expr $a - $b   *">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-11T10:21:17.198Z">
+<meta property="og:updated_time" content="2018-12-11T10:27:43.958Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell入门——基本运算符">
 <meta name="twitter:description" content="shell基本运算符类别介绍 算术运算符 关系运算符 布尔运算符 字符串运算符 文件测试运算符  几点注意 在进行求值操作时要使用expr 表达式和运算符之间必须要有空格 算数表达式要完全被``包含12a=`expr 2 + 2`echo &quot;两数之和为 : $a&quot;   算数运算符   运算符 说明 使用举例     + 加法 expr $a + $b   - 减法 expr $a - $b   *">
@@ -470,33 +470,6 @@
 </tbody>
 </table>
 <p><strong>注意</strong><br>表达式要放在方括号之间，并且要有空格，[ \$a -gt \$b ]。</p>
-<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a><strong>逻辑运算符</strong></h3><p>假设a=20;b=30.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">运算符</th>
-<th style="text-align:center">说明</th>
-<th style="text-align:center">使用举例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">&amp;&amp;</td>
-<td style="text-align:center">逻辑上的 与</td>
-<td style="text-align:center">[[ \$a -lt 100 &amp;&amp; \$b -gt 100 ]] 返回false</td>
-</tr>
-<tr>
-<td style="text-align:center">\</td>
-<td style="text-align:center">\</td>
-<td style="text-align:center"></td>
-<td>逻辑上的 或</td>
-<td>[[ \$a -lt 100 \</td>
-<td>\</td>
-<td>\$b -gt 100 ]]返回false</td>
-</tr>
-</tbody>
-</table>
-<p><strong>注意</strong><br>表达式要放在<strong>双(double)</strong>方括号之间，并且要有空格[[ \$a -lt 100 &amp;&amp; \$b -gt 100 ]].</p>
 <h3 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a><strong>字符串运算符</strong></h3><p>假设a=“zyk”;b=“xy”.</p>
 <table>
 <thead>
@@ -730,7 +703,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -778,7 +751,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#shell基本运算符"><span class="nav-number">1.</span> <span class="nav-text">shell基本运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类别介绍"><span class="nav-number">1.1.</span> <span class="nav-text">类别介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几点注意"><span class="nav-number">1.2.</span> <span class="nav-text">几点注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算数运算符"><span class="nav-number">1.3.</span> <span class="nav-text">算数运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系运算符"><span class="nav-number">1.4.</span> <span class="nav-text">关系运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">1.5.</span> <span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串运算符"><span class="nav-number">1.6.</span> <span class="nav-text">字符串运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件测试运算符"><span class="nav-number">1.7.</span> <span class="nav-text">文件测试运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell注释的用法"><span class="nav-number">1.8.</span> <span class="nav-text">shell注释的用法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#shell基本运算符"><span class="nav-number">1.</span> <span class="nav-text">shell基本运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类别介绍"><span class="nav-number">1.1.</span> <span class="nav-text">类别介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几点注意"><span class="nav-number">1.2.</span> <span class="nav-text">几点注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算数运算符"><span class="nav-number">1.3.</span> <span class="nav-text">算数运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系运算符"><span class="nav-number">1.4.</span> <span class="nav-text">关系运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串运算符"><span class="nav-number">1.5.</span> <span class="nav-text">字符串运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件测试运算符"><span class="nav-number">1.6.</span> <span class="nav-text">文件测试运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell注释的用法"><span class="nav-number">1.7.</span> <span class="nav-text">shell注释的用法</span></a></li></ol></li></ol></div>
             
 
           </div>
