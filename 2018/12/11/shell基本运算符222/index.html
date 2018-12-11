@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Kun&#39;blog">
 <meta property="og:description" content="shell基本运算符类别介绍 算术运算符 关系运算符 布尔运算符 字符串运算符 文件测试运算符  几点注意 在进行求值操作时要使用expr 表达式和运算符之间必须要有空格 算数表达式要完全被``包含12a=`expr 2 + 2`echo &quot;两数之和为 : $a&quot;   算数运算符   运算符 说明 使用举例     + 加法 expr $a + $b   - 减法 expr $a - $b   *">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-11T09:09:08.418Z">
+<meta property="og:updated_time" content="2018-12-11T09:18:20.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell入门——基本运算符222">
 <meta name="twitter:description" content="shell基本运算符类别介绍 算术运算符 关系运算符 布尔运算符 字符串运算符 文件测试运算符  几点注意 在进行求值操作时要使用expr 表达式和运算符之间必须要有空格 算数表达式要完全被``包含12a=`expr 2 + 2`echo &quot;两数之和为 : $a&quot;   算数运算符   运算符 说明 使用举例     + 加法 expr $a + $b   - 减法 expr $a - $b   *">
@@ -427,9 +427,11 @@
 </li>
 </ol>
 <p>输出结果<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">a</span> + b : <span class="number">30</span></div><div class="line"><span class="keyword">a</span> - b : <span class="number">-10</span></div><div class="line"><span class="keyword">a</span> * b : <span class="number">200</span></div><div class="line">b / <span class="keyword">a</span> : <span class="number">2</span></div><div class="line">b % <span class="keyword">a</span> : <span class="number">0</span></div><div class="line"><span class="keyword">a</span> 不等于 b</div></pre></td></tr></table></figure></p>
+<hr>
 <h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a><strong>关系运算符</strong></h3><p>关系运算符只支持数字，不支持字符串，除非字符串的值是数字<br>假设a=20; b=30<br>| 运算符 | 说明 | 使用举例 |<br>| :-: | :-:| :-: |<br>| + | 加法 | <code>expr $a + $b</code> |<br>| - | 减法 | <code>expr $a - $b</code> |<br>| <em> | 乘法 | `expr $a \</em> $b<code>|
 | / | 除法 |</code>expr $a / $b<code>|
 | % | 取余 |</code>expr $a % $b` |<br>| = | 赋值 | a = $b 将变量b的值赋给a|<br>| == | 判相等，相同为true |  [ \$a == \$b ]  |<br>| != | 判不等，不等为true | [ \$a != \$b ] |<br><strong>注意</strong><br>表达式要放在方括号之间，并且要有空格，[ \$a -gt \$b ]。</p>
+<hr>
 <h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a><strong>逻辑运算符</strong></h3><p>假设a=20;b=30<br>| 运算符 | 说明 | 使用举例 |<br>| :-: | :-:| :-: |<br>| + | 加法 | <code>expr $a + $b</code> |<br>| - | 减法 | <code>expr $a - $b</code> |<br>| <em> | 乘法 | `expr $a \</em> $b<code>|
 | / | 除法 |</code>expr $a / $b<code>|
 | % | 取余 |</code>expr $a % $b` |<br>| = | 赋值 | a = $b 将变量b的值赋给a|<br>| == | 判相等，相同为true |  [ \$a == \$b ]  |<br>| != | 判不等，不等为true | [ \$a != \$b ] |<br><strong>注意</strong><br>表达式要放在<strong>双(double)</strong>方括号之间，并且要有空格[[ \$a -lt 100 &amp;&amp; \$b -gt 100 ]].</p>
