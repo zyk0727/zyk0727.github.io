@@ -418,8 +418,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/26/--交换机基础--/" rel="next" title="交换基础(1)--交换机">
-                <i class="fa fa-chevron-left"></i> 交换基础(1)--交换机
+              <a href="/2017/10/25/回文数（顺序栈）/" rel="next" title="简单实例（回文数）学习顺序栈">
+                <i class="fa fa-chevron-left"></i> 简单实例（回文数）学习顺序栈
               </a>
             
           </div>
@@ -428,8 +428,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/06/几种因拓扑变化导致的链路故障浅解/" rel="prev" title="交换基础(3)--STP(续)">
-                交换基础(3)--STP(续) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/26/--交换机基础--/" rel="prev" title="交换基础(1)--交换机">
+                交换基础(1)--交换机 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -584,7 +584,34 @@
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">zhangxiaokun</span>
-
+  <span id="sitetime"></span>
+  <script language=javascript>
+   function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    var t1 = Date.UTC(2018,06,07,12,00,00); // ���ý�����վ��ʱ��
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = t2-t1;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+    document.getElementById("sitetime").innerHTML=" ������"+diffYears+" �� "diffDays+" �� "+diffHours+" Сʱ "+diffMinutes+" ���� "+diffSeconds+" ��";
+  }
+  siteTime();
+</script>
   
 </div>
 
